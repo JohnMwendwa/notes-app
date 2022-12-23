@@ -1,5 +1,5 @@
-import React from "react";
 import NoteProps from "../models/note";
+import Note from "./Note";
 
 export default function NotesList({
   notes,
@@ -9,7 +9,7 @@ export default function NotesList({
   return (
     <>
       {notes.map((note) => {
-        return <li key={note.id}>{note.title}</li>;
+        return <Note key={note.id} {...note} />;
       })}
     </>
   );
