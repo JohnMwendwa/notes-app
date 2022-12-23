@@ -1,6 +1,6 @@
 import Tag from "./tag";
 
-export default interface Note {
+export default interface NoteProps {
   id: string;
   title: string;
   markdown: string;
