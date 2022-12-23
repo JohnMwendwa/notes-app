@@ -6,7 +6,10 @@ const dummy_notes: NoteProps[] = [
     id: crypto.randomUUID(),
     title: "Note 1",
     markdown: "# Note 1",
-    tags: [],
+    tags: [
+      { id: crypto.randomUUID(), label: "CSS" },
+      { id: crypto.randomUUID(), label: "JS" },
+    ],
   },
   {
     id: crypto.randomUUID(),
