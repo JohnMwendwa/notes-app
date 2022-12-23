@@ -1,5 +1,26 @@
 import React from "react";
 
+import NoteProps from "../models/note";
+
+const dummy_notes: NoteProps[] = [
+  {
+    id: crypto.randomUUID(),
+    title: "Note 1",
+    markdown: "# Note 1",
+    tags: [],
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "Note 2",
+    markdown: "# Note 2",
+    tags: [],
+  },
+];
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <h1>All Notes</h1>
+    </div>
+  );
 }
