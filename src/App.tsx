@@ -6,6 +6,9 @@ function App() {
       {/* Home Route */}
       <Route path="/" element={<h1>Home</h1>} />
 
+      {/* New Note Route */}
+      <Route path="/new" element={<h1>New Note</h1>} />
+
       {/* Details page Route*/}
       <Route path="/:id">
         <Route index element={<h1>Details</h1>} />
