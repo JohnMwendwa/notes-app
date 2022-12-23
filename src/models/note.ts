@@ -1,8 +1,8 @@
-import Tag from "./tag";
+import TagProps from "./tag";
 
 export default interface NoteProps {
   id: string;
   title: string;
   markdown: string;
-  tags: Tag[];
+  tags: TagProps[];
 }
