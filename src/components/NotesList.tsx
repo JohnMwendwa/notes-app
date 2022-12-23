@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import NoteProps from "../models/note";
 import Note from "./Note";
 
@@ -9,7 +11,11 @@ export default function NotesList({
   return (
     <>
       {notes.map((note) => {
-        return <Note key={note.id} {...note} />;
+        return (
+          <Link to={`/${note.id}`} key={note.id}>
+            <Note {...note} />
+          </Link>
+        );
       })}
     </>
   );
