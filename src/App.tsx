@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NewNotePage from "./pages/NewNotePage";
 import DetailsPage from "./pages/DetailsPage";
+import EditNotePage from "./pages/EditNotePage";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route index element={<DetailsPage />} />
 
         {/* Edit Page Route */}
-        <Route path="edit" element={<h1>Editing</h1>} />
+        <Route path="edit" element={<EditNotePage />} />
       </Route>
 
       {/* Return to homepage if route doesn't match specified routes */}
