@@ -2,6 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import NewNotePage from "./pages/NewNotePage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
 
       {/* Details page Route*/}
       <Route path="/:id">
-        <Route index element={<h1>Details</h1>} />
+        <Route index element={<DetailsPage />} />
 
         {/* Edit Page Route */}
         <Route path="edit" element={<h1>Editing</h1>} />
