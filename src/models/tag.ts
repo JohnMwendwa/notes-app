@@ -1,4 +1,4 @@
-export default interface Tag {
+export default interface TagProps {
   id: string;
   label: string;
 }
