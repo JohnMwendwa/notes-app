@@ -1,10 +1,12 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
+import HomePage from "./pages/HomePage";
+
 function App() {
   return (
     <Routes>
       {/* Home Route */}
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/" element={<HomePage />} />
 
       {/* New Note Route */}
       <Route path="/new" element={<h1>New Note</h1>} />
