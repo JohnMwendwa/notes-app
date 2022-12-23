@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
+import NewNotePage from "./pages/NewNotePage";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
 
       {/* New Note Route */}
-      <Route path="/new" element={<h1>New Note</h1>} />
+      <Route path="/new" element={<NewNotePage />} />
 
       {/* Details page Route*/}
       <Route path="/:id">
