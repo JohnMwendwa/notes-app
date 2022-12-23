@@ -1,5 +1,4 @@
-import React from "react";
-
+import NotesList from "../components/NotesList";
 import NoteProps from "../models/note";
 
 const dummy_notes: NoteProps[] = [
@@ -21,6 +20,8 @@ export default function HomePage() {
   return (
     <div>
       <h1>All Notes</h1>
+
+      <NotesList notes={dummy_notes} />
     </div>
   );
 }
