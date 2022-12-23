@@ -17,3 +17,7 @@ export function NotesContextProvider({ children }: Props) {
     </NotesContext.Provider>
   );
 }
+
+export const useNotesContext = () => {
+  return useContext(NotesContext);
+};
