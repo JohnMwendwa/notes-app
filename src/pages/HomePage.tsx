@@ -1,30 +1,14 @@
 import NotesList from "../components/NotesList";
-import NoteProps from "../models/note";
 
-const dummy_notes: NoteProps[] = [
-  {
-    id: crypto.randomUUID(),
-    title: "Note 1",
-    markdown: "# Note 1",
-    tags: [
-      { id: crypto.randomUUID(), label: "CSS" },
-      { id: crypto.randomUUID(), label: "JS" },
-    ],
-  },
-  {
-    id: crypto.randomUUID(),
-    title: "Note 2",
-    markdown: "# Note 2",
-    tags: [],
-  },
-];
+import { useNotesContext } from "../context/NotesContext";
 
 export default function HomePage() {
+  const { notes } = useNotesContext();
   return (
     <div>
       <h1>All Notes</h1>
 
-      <NotesList notes={dummy_notes} />
+      <NotesList notes={notes} />
     </div>
   );
 }
