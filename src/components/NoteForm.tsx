@@ -1,4 +1,15 @@
-export default function NoteForm() {
+import NoteProps from "../models/note";
+
+interface NoteFormProps extends Partial<NoteProps> {
+  onSubmit: (data: NoteFormProps) => void;
+}
+
+export default function NoteForm({
+  onSubmit,
+  title = "",
+  markdown = "",
+  tags = [],
+}: NoteFormProps) {
   return (
     <form>
       <label htmlFor="title">
