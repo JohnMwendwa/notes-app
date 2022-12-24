@@ -1,21 +1,15 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-import NoteProps from "../models/note";
-
-const note: NoteProps = {
-  id: crypto.randomUUID(),
-  title: "Note 1",
-  markdown: "# Note 1",
-  tags: [
-    { id: crypto.randomUUID(), label: "CSS" },
-    { id: crypto.randomUUID(), label: "JS" },
-  ],
-};
+import { useNotesContext } from "../context/NotesContext";
 
 export default function DetailsPage(): JSX.Element {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { notes } = useNotesContext();
 
+  // Find note index
+  const noteIdx = notes.findIndex((n) => n.id === id);
+  const note = notes[noteIdx];
   return (
     <>
       <h1>{note.title}</h1>
