@@ -34,6 +34,8 @@ export default function NoteForm({
       markdown: markdownRef.current!.value,
       tags: tagsArray,
     });
+
+    navigate("/");
   };
 
   return (
@@ -68,7 +70,9 @@ export default function NoteForm({
           defaultValue={markdown}
         ></textarea>
       </label>
-      <button type="button">Cancel</button>
+      <button type="button" onClick={() => navigate(-1)}>
+        Cancel
+      </button>
       <button type="submit">Save</button>
     </form>
   );
