@@ -1,5 +1,12 @@
-import React from "react";
+import NoteForm from "../components/NoteForm";
+import { useNotesContext } from "../context/NotesContext";
 
 export default function NewNotePage() {
-  return <div>NewNotePage</div>;
+  const { onCreateNote } = useNotesContext();
+  return (
+    <>
+      <h1>Create Note</h1>
+      <NoteForm onSubmit={onCreateNote} />
+    </>
+  );
 }
