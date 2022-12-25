@@ -4,7 +4,12 @@ import { useNotesContext } from "../context/NotesContext";
 
 import NoteProps from "../models/note";
 
-export default function Note({ id, title, tags }: NoteProps): JSX.Element {
+export default function Note({
+  id,
+  title,
+  tags,
+  markdown,
+}: NoteProps): JSX.Element {
   const { onDeleteNote } = useNotesContext();
   const navigate = useNavigate();
 
@@ -14,6 +19,9 @@ export default function Note({ id, title, tags }: NoteProps): JSX.Element {
       {tags.map((tag) => {
         return <button key={tag.id}>{tag.label}</button>;
       })}
+
+      <p>{markdown}</p>
+
       <button onClick={() => navigate(`/${id}/edit`)}>Edit</button>
       <button
         onClick={() => {
