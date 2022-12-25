@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import NoteProps from "../models/note";
 
-interface NoteFormProps extends NoteProps {
+interface NoteFormProps extends Partial<NoteProps> {
   onSubmit: (data: NoteProps) => void;
 }
 
