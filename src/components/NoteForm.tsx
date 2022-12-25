@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import NoteProps from "../models/note";
 
-interface NoteFormProps extends Partial<NoteProps> {
-  onSubmit: (data: Partial<NoteFormProps>) => void;
+interface NoteFormProps extends NoteProps {
+  onSubmit: (data: NoteProps) => void;
 }
 
 export default function NoteForm({
@@ -12,9 +12,10 @@ export default function NoteForm({
   title = "",
   markdown = "",
   tags = [],
+  id,
 }: NoteFormProps) {
   const value = tags.map((t) => t.label).join(" ");
-  const [newTags, setNewTags] = useState(value);
+  const [newTags, setNewTags] = useState<string>(value);
   const titleRef = useRef<HTMLInputElement>(null);
   // const tagsRef = useRef<HTMLInputElement>(null);
   const markdownRef = useRef<HTMLTextAreaElement>(null);
@@ -23,13 +24,15 @@ export default function NoteForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const tagsArray = newTags
+      .split(" ")
+      .map((t) => ({ label: t, id: crypto.randomUUID() }));
 
     onSubmit({
-      title: titleRef.current?.value,
-      markdown: markdownRef.current?.value,
-      tags: newTags
-        .split(" ")
-        .map((t) => ({ label: t, id: crypto.randomUUID() })),
+      id: id ? id : crypto.randomUUID(),
+      title: titleRef.current!.value,
+      markdown: markdownRef.current!.value,
+      tags: tagsArray,
     });
   };
 
