@@ -1,9 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useNotesContext } from "../context/NotesContext";
+import Note from "../components/Note";
 
 export default function DetailsPage(): JSX.Element {
-  const navigate = useNavigate();
   const { id } = useParams();
   const { notes } = useNotesContext();
 
@@ -12,12 +12,7 @@ export default function DetailsPage(): JSX.Element {
   const note = notes[noteIdx];
   return (
     <>
-      <h1>{note.title}</h1>
-      {note.tags.map((tag) => {
-        return <button key={tag.id}>{tag.label}</button>;
-      })}
-      <div>{note.markdown}</div>
-      <button onClick={() => navigate(-1)}>Go Back</button>
+      <Note {...note} />
     </>
   );
 }
