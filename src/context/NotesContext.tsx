@@ -29,6 +29,7 @@ interface Value {
   setNotes: React.Dispatch<React.SetStateAction<NoteProps[]>>;
   onCreateNote: (data: NoteProps) => void;
   onUpdateNote: (data: NoteProps) => void;
+  onDeleteNote: (id: string) => void;
 }
 
 const NotesContext = createContext({} as Value);
@@ -50,10 +51,15 @@ export function NotesContextProvider({ children }: Props) {
       });
     });
   };
+  const onDeleteNote = (id: string) => {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((note) => note.id !== id);
+    });
+  };
 
   return (
     <NotesContext.Provider
-      value={{ notes, setNotes, onCreateNote, onUpdateNote }}
+      value={{ notes, setNotes, onCreateNote, onUpdateNote, onDeleteNote }}
     >
       {children}
     </NotesContext.Provider>
