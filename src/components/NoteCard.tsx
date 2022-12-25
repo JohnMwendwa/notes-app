@@ -1,7 +1,12 @@
-export default function NoteCard() {
+import NoteProps from "../models/note";
+
+export default function NoteCard({ title, tags }: NoteProps) {
   return (
     <>
-      <h1>NoteCard</h1>
+      <h2>{title}</h2>
+      {tags.map((tag) => {
+        return <button key={tag.id}>{tag.label}</button>;
+      })}
     </>
   );
 }
