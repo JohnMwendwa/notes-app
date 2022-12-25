@@ -4,7 +4,7 @@ import NoteProps from "../models/note";
 
 const dummy_notes: NoteProps[] = [
   {
-    id: crypto.randomUUID(),
+    id: "12301c91-d2c9-4942-90a9-f788fe92421c",
     title: "Note 1",
     markdown: "# Note 1",
     tags: [
@@ -13,7 +13,7 @@ const dummy_notes: NoteProps[] = [
     ],
   },
   {
-    id: crypto.randomUUID(),
+    id: "c37d509b-5679-4eb1-aa8b-91b2f1ccaf15",
     title: "Note 2",
     markdown: "# Note 2",
     tags: [],
@@ -27,6 +27,7 @@ interface Props {
 interface Value {
   notes: NoteProps[];
   setNotes: React.Dispatch<React.SetStateAction<NoteProps[]>>;
+  onCreateNote: (data: NoteProps) => void;
 }
 
 const NotesContext = createContext({} as Value);
@@ -34,8 +35,12 @@ const NotesContext = createContext({} as Value);
 export function NotesContextProvider({ children }: Props) {
   const [notes, setNotes] = useState<NoteProps[]>(dummy_notes);
 
+  const onCreateNote = (data: NoteProps) => {
+    setNotes((prevNotes) => [...prevNotes, data]);
+  };
+
   return (
-    <NotesContext.Provider value={{ notes, setNotes }}>
+    <NotesContext.Provider value={{ notes, setNotes, onCreateNote }}>
       {children}
     </NotesContext.Provider>
   );
