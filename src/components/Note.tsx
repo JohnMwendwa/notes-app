@@ -1,4 +1,5 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 import { useNotesContext } from "../context/NotesContext";
 
@@ -20,7 +21,7 @@ export default function Note({
         return <button key={tag.id}>{tag.label}</button>;
       })}
 
-      <p>{markdown}</p>
+      <ReactMarkdown>{markdown}</ReactMarkdown>
 
       <button onClick={() => navigate(`/${id}/edit`)}>Edit</button>
       <button
