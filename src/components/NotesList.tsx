@@ -17,8 +17,15 @@ body{
 
 a{
   text-decoration:none;
-  
+
 }
+`;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  padding: 0 30px 30px;
 `;
 
 export default function NotesList({
@@ -27,7 +34,7 @@ export default function NotesList({
   notes: NoteProps[];
 }): JSX.Element {
   return (
-    <>
+    <Container>
       <GlobalStyles />
       {notes.map((note) => {
         return (
@@ -36,6 +43,6 @@ export default function NotesList({
           </Link>
         );
       })}
-    </>
+    </Container>
   );
 }
