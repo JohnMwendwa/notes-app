@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
   border: 1px solid black;
   max-width: 300px;
+  min-width: 200px;
   margin: 20px;
   padding: 20px 30px;
   border-radius: 5px;
