@@ -17,7 +17,7 @@ const Container = styled.div`
     display: block;
     margin: 0 auto;
     color: white;
-    background-color: green;
+    background-color: #08b508;
     outline: none;
     border: none;
     border-radius: 3px;
