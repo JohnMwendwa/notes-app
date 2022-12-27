@@ -16,7 +16,11 @@ const Container = styled.div`
   > button {
     display: block;
     margin: 0 auto;
-    color: green;
+    color: white;
+    background-color: green;
+    outline: none;
+    border: none;
+    border-radius: 3px;
     padding: 5px 20px;
     font-size: 14px;
     font-weight: bold;
@@ -26,7 +30,7 @@ const Container = styled.div`
 `;
 const Divider = styled.div`
   width: 100%;
-  border-bottom: 3px solid blue;
+  border-bottom: 1px solid blue;
 `;
 
 export default function HomePage() {
