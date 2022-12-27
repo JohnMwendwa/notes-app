@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { useNotesContext } from "../context/NotesContext";
 import Note from "../components/Note";
@@ -6,6 +6,7 @@ import Note from "../components/Note";
 export default function DetailsPage(): JSX.Element {
   const { id } = useParams();
   const { notes } = useNotesContext();
+  const navigate = useNavigate();
 
   // Find note index
   const noteIdx = notes.findIndex((n) => n.id === id);
@@ -13,6 +14,7 @@ export default function DetailsPage(): JSX.Element {
   return (
     <>
       <Note {...note} />
+      <button onClick={() => navigate(-1)}>Back</button>
     </>
   );
 }
