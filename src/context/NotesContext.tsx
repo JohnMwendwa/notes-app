@@ -6,7 +6,7 @@ const dummy_notes: NoteProps[] = [
   {
     id: "12301c91-d2c9-4942-90a9-f788fe92421c",
     title: "Note 1",
-    markdown: "# Note 1",
+    markdown: `# This is a title\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.\n\n## This is another title\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.\n\n### This is another title\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.`,
     tags: [
       { id: crypto.randomUUID(), label: "CSS" },
       { id: crypto.randomUUID(), label: "JS" },
@@ -15,8 +15,8 @@ const dummy_notes: NoteProps[] = [
   {
     id: "c37d509b-5679-4eb1-aa8b-91b2f1ccaf15",
     title: "Note 2",
-    markdown: "# Note 2",
-    tags: [],
+    markdown: `# This is a title\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.\n\n## This is another title\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.`,
+    tags: [{ id: crypto.randomUUID(), label: "html" }],
   },
 ];
 
@@ -56,6 +56,8 @@ export function NotesContextProvider({ children }: Props) {
       return prevNotes.filter((note) => note.id !== id);
     });
   };
+
+  console.log(notes);
 
   return (
     <NotesContext.Provider
