@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import NoteProps from "../models/note";
+import { Tag } from "./Note";
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,13 +36,18 @@ const Tags = styled.div`
   }
 `;
 
+const TagBtn = styled(Tag)`
+  margin-bottom: 3px;
+  border-radius: 3px;
+`;
+
 export default function NoteCard({ title, tags }: NoteProps) {
   return (
     <Wrapper>
       <h2>{title}</h2>
       <Tags>
         {tags.map((tag) => {
-          return <button key={tag.id}>{tag.label}</button>;
+          return <TagBtn key={tag.id}>{`# ${tag.label}`}</TagBtn>;
         })}
       </Tags>
     </Wrapper>
