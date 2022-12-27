@@ -1,11 +1,60 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 import NoteProps from "../models/note";
 
 interface NoteFormProps extends Partial<NoteProps> {
   onSubmit: (data: NoteProps) => void;
 }
+
+const Form = styled.form`
+  width: 80%;
+  max-width: 800px;
+  padding: 0 20px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  input {
+    width: 80%;
+    max-width: 800px;
+    padding: 3px 5px;
+    margin-left: 5px;
+  }
+
+  textarea {
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 40px;
+    padding: 10px;
+    font-size: 16px;
+  }
+`;
+
+const ActionBtns = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const CancelBtn = styled.button`
+  background-color: grey;
+  color: white;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+`;
+const SaveBtn = styled(CancelBtn)`
+  background-color: green;
+`;
 
 export default function NoteForm({
   onSubmit,
@@ -39,7 +88,7 @@ export default function NoteForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <label htmlFor="title">
         Title :
         <input
@@ -60,20 +109,22 @@ export default function NoteForm({
           onChange={(e) => setNewTags(e.target.value)}
         />
       </label>
-      <label htmlFor="markdown">
-        Markdown :
-        <textarea
-          id=""
-          rows={15}
-          required
-          ref={markdownRef}
-          defaultValue={markdown}
-        ></textarea>
-      </label>
-      <button type="button" onClick={() => navigate(-1)}>
-        Cancel
-      </button>
-      <button type="submit">Save</button>
-    </form>
+      <label htmlFor="markdown">Markdown :</label>
+      <textarea
+        id=""
+        rows={20}
+        required
+        ref={markdownRef}
+        defaultValue={markdown}
+      ></textarea>
+
+      <ActionBtns>
+        <CancelBtn type="button" onClick={() => navigate(-1)}>
+          Cancel
+        </CancelBtn>
+
+        <SaveBtn type="submit">Save</SaveBtn>
+      </ActionBtns>
+    </Form>
   );
 }
