@@ -1,9 +1,55 @@
 import { useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
 
 import { useNotesContext } from "../context/NotesContext";
-
 import NoteProps from "../models/note";
+
+const Container = styled.div`
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  box-shadow: 2px 0px 5px 3px rgba(0, 0, 0, 0.5);
+`;
+
+const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-align: center;
+  color: blue;
+  font-size: 2rem;
+`;
+
+export const Tag = styled.span`
+  display: inline-block;
+  background-color: grey;
+  color: white;
+  margin-left: 5px;
+  padding: 2px 10px;
+`;
+
+const ActionBtns = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const EditBtn = styled.button`
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
+  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+`;
+
+const DeleteBtn = styled(EditBtn)`
+  background-color: red;
+`;
 
 export default function Note({
   id,
@@ -15,24 +61,26 @@ export default function Note({
   const navigate = useNavigate();
 
   return (
-    <>
-      <h2>{title}</h2>
+    <Container>
+      <Title>{title}</Title>
       {tags.map((tag) => {
-        return <button key={tag.id}>{tag.label}</button>;
+        return <Tag key={tag.id}>{`# ${tag.label}`}</Tag>;
       })}
 
       <ReactMarkdown>{markdown}</ReactMarkdown>
 
-      <button onClick={() => navigate(`/${id}/edit`)}>Edit</button>
-      <button
-        onClick={() => {
-          onDeleteNote(id);
-          navigate("/");
-        }}
-      >
-        Delete
-      </button>
-      <button onClick={() => navigate(-1)}>Back</button>
-    </>
+      <ActionBtns>
+        <EditBtn onClick={() => navigate(`/${id}/edit`)}>Edit</EditBtn>
+
+        <DeleteBtn
+          onClick={() => {
+            onDeleteNote(id);
+            navigate("/");
+          }}
+        >
+          Delete
+        </DeleteBtn>
+      </ActionBtns>
+    </Container>
   );
 }
