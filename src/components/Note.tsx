@@ -29,6 +29,7 @@ export const Tag = styled.span`
   color: white;
   margin-left: 5px;
   padding: 2px 10px;
+  margin-top: 5px;
 `;
 
 const ActionBtns = styled.div`
