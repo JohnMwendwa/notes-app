@@ -57,8 +57,6 @@ export function NotesContextProvider({ children }: Props) {
     });
   };
 
-  console.log(notes);
-
   return (
     <NotesContext.Provider
       value={{ notes, setNotes, onCreateNote, onUpdateNote, onDeleteNote }}
