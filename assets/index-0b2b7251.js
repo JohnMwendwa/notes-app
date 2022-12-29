@@ -116,7 +116,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delect
 
 ## This is another title
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.`,tags:[{id:crypto.randomUUID(),label:"html"}]}],$m=N.createContext({});function vS({children:e}){const[t,n]=N.useState(yS),r=o=>{n(u=>[...u,o])},i=o=>{n(u=>u.map(a=>a.id===o.id?o:a))},l=o=>{n(u=>u.filter(a=>a.id!==o))};return console.log(t),Z($m.Provider,{value:{notes:t,setNotes:n,onCreateNote:r,onUpdateNote:i,onDeleteNote:l},children:e})}const Hi=()=>N.useContext($m),xS=Te.div`
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione suscipit delectus nisi ea laborum aliquid provident modi reprehenderit? Veritatis ab eaque natus aperiam quasi ullam impedit dolores labore distinctio quo.`,tags:[{id:crypto.randomUUID(),label:"html"}]}],$m=N.createContext({});function vS({children:e}){const[t,n]=N.useState(yS),r=o=>{n(u=>[...u,o])},i=o=>{n(u=>u.map(a=>a.id===o.id?o:a))},l=o=>{n(u=>u.filter(a=>a.id!==o))};return Z($m.Provider,{value:{notes:t,setNotes:n,onCreateNote:r,onUpdateNote:i,onDeleteNote:l},children:e})}const Hi=()=>N.useContext($m),xS=Te.div`
   width: 80%;
   max-width: 800px;
   border-radius: 8px;
