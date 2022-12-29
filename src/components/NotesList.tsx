@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import NoteProps from "../models/note";
 import NoteCard from "./NoteCard";
+import { baseURL } from "../App";
 
 const GlobalStyles = createGlobalStyle`
 body{
@@ -38,7 +39,7 @@ export default function NotesList({
       <GlobalStyles />
       {notes.map((note) => {
         return (
-          <Link to={`/${note.id}`} key={note.id}>
+          <Link to={`/${baseURL}/${note.id}`} key={note.id}>
             <NoteCard {...note} />
           </Link>
         );
