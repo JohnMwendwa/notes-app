@@ -229,7 +229,7 @@ a{
 `,LS=Te.div`
   width: 100%;
   border-bottom: 1px solid blue;
-`;function FS(){const{notes:e}=Vi(),t=Mr();return ot(zS,{children:[Z("h1",{children:"All Notes"}),Z("button",{onClick:()=>t(`/${Qt}/new`),children:"New"}),Z(LS,{}),Z(RS,{notes:e})]})}const NS=Te.form`
+`;function FS(){const{notes:e}=Vi(),t=Mr();return ot(zS,{children:[Z("h1",{children:"All Notes"}),Z("button",{onClick:()=>t(`${Qt}/new`),children:"New"}),Z(LS,{}),Z(RS,{notes:e})]})}const NS=Te.form`
   width: 80%;
   max-width: 800px;
   padding: 0 20px;
