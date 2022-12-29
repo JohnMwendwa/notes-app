@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { useNotesContext } from "../context/NotesContext";
 import NoteProps from "../models/note";
+import { baseURL } from "../App";
 
 const Container = styled.div`
   width: 80%;
@@ -64,6 +65,7 @@ export default function Note({
   return (
     <Container>
       <Title>{title}</Title>
+
       {tags.map((tag) => {
         return <Tag key={tag.id}>{`# ${tag.label}`}</Tag>;
       })}
@@ -71,12 +73,14 @@ export default function Note({
       <ReactMarkdown>{markdown}</ReactMarkdown>
 
       <ActionBtns>
-        <EditBtn onClick={() => navigate(`/${id}/edit`)}>Edit</EditBtn>
+        <EditBtn onClick={() => navigate(`${baseURL}/${id}/edit`)}>
+          Edit
+        </EditBtn>
 
         <DeleteBtn
           onClick={() => {
             onDeleteNote(id);
-            navigate("/");
+            navigate(`${baseURL}`);
           }}
         >
           Delete
