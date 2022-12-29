@@ -5,17 +5,19 @@ import NewNotePage from "./pages/NewNotePage";
 import DetailsPage from "./pages/DetailsPage";
 import EditNotePage from "./pages/EditNotePage";
 
+export const baseURL = "/notes-app";
+
 function App() {
   return (
     <Routes>
       {/* Home Route */}
-      <Route path="/" element={<HomePage />} />
+      <Route path={baseURL} element={<HomePage />} />
 
       {/* New Note Route */}
-      <Route path="/new" element={<NewNotePage />} />
+      <Route path={`${baseURL}/new`} element={<NewNotePage />} />
 
       {/* Details page Route*/}
-      <Route path="/:id">
+      <Route path={`${baseURL}/:id`}>
         <Route index element={<DetailsPage />} />
 
         {/* Edit Page Route */}
@@ -23,7 +25,7 @@ function App() {
       </Route>
 
       {/* Return to homepage if route doesn't match specified routes */}
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path={`${baseURL}/*`} element={<Navigate to={baseURL} />} />
     </Routes>
   );
 }
