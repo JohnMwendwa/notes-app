@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import NotesList from "../components/NotesList";
 import { useNotesContext } from "../context/NotesContext";
+import { baseURL } from "../App";
 
 const Container = styled.div`
   margin: 0 0 20px;
@@ -39,7 +40,7 @@ export default function HomePage() {
   return (
     <Container>
       <h1>All Notes</h1>
-      <button onClick={() => navigate("/new")}>New</button>
+      <button onClick={() => navigate(`/${baseURL}/new`)}>New</button>
       <Divider />
       <NotesList notes={notes} />
     </Container>
