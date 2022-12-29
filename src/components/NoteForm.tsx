@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import NoteProps from "../models/note";
+import { baseURL } from "../App";
 
 interface NoteFormProps extends Partial<NoteProps> {
   onSubmit: (data: NoteProps) => void;
@@ -84,7 +85,7 @@ export default function NoteForm({
       tags: tagsArray,
     });
 
-    navigate("/");
+    navigate(`${baseURL}`);
   };
 
   return (
