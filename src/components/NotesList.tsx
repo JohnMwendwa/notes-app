@@ -39,7 +39,7 @@ export default function NotesList({
       <GlobalStyles />
       {notes.map((note) => {
         return (
-          <Link to={`/${baseURL}/${note.id}`} key={note.id}>
+          <Link to={`${baseURL}/${note.id}`} key={note.id}>
             <NoteCard {...note} />
           </Link>
         );
